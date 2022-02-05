@@ -1,13 +1,17 @@
-import React from "react";
+import { AuthContextProvider } from "./context/AuthContext";
 import { render } from "react-dom";
-import "./index.css";
+import { ThemeProvider } from "@mui/material/styles";
 import App from "./App";
-import reportWebVitals from "./reportWebVitals";
+import CssBaseline from "@mui/material/CssBaseline";
+import theme from "./theme";
 
 render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  <ThemeProvider theme={theme}>
+    {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
+    <CssBaseline />
+    <AuthContextProvider>
+      <App />
+    </AuthContextProvider>
+  </ThemeProvider>,
   document.getElementById("root")
 );
-reportWebVitals();
